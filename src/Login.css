@@ -1,0 +1,86 @@
+/* Formatting for the login form */
+body {
+    background-color: #fff;
+    font-family: 'Urbanist', sans-serif;
+}
+
+a {
+    color: #000000;
+}
+.modal-dialog {
+    /* background-image: linear-gradient(135deg, rgb(185, 43, 43), rgb(62, 0, 90)); */
+    border-radius: 2.2em;
+    overflow: hidden;
+    padding: .2em;
+    /* width:380px; */
+    background-color: #f8f8f8;
+    background-color: ;
+}
+
+.modal-content{
+    background-color: #ffffff;
+    border-radius: 2.0em;
+    /* background-image: url(./assets/bg-clouds-med.jpg); */    
+
+}
+.modal-header {
+    background-color: #eee;
+    border-radius: 2.0em 2em 0 0;
+    /* background-image: url(./assets/bg-clouds-med.jpg); */    
+
+}
+.modal-footer {
+    background-color: #eee;
+    border-radius: 0 0 2.0em 2em;
+
+    
+    /* background-image: url(./assets/bg-clouds-med.jpg); */    
+
+}
+
+.modal-title{
+
+    font-size: 16px;
+}
+
+.username-input, .password-input {
+    background-color: #ffffff;
+  }
+
+#btn-login {
+    border-radius: .5em;
+    background-color: #0b1b49;
+    display: block;
+    width: 100%;
+    color:white;
+    border: 0px none;
+    height:3em;
+    font-size: large;
+}
+
+#btn-login:hover {
+    background-color: #0b1b49;
+    color: white;
+}
+/* input[type="text"], input[type="password"] {
+    color: #000000;
+    border: 0px solid white;
+    background-color: #f8f8f8;
+}
+input[type="text"]:enabled, input[type="password"]:enabled {
+    -webkit-text-fill-color: rgb(165, 165, 165);
+}
+input[type="text"]:focus, input[type="password"]:focus {
+    -webkit-text-fill-color: rgb(0, 0, 0);
+}
+input[type="text"]::placeholder::shadow, input[type="password"]:focus {
+    -webkit-text-fill-color: rgb(42, 153, 60);
+} */
+
+
+.input-group-text {
+    color: #535353;
+    border: 0px solid white;
+    background-color: #efefef;
+}
+
