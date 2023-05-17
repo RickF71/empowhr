@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate as navigate } from 'react-router-dom';
 import { Modal, Button, Form, Row, Col } from 'react-bootstrap';
 import { InputGroup } from 'react-bootstrap';
-import mars1 from './assets/mars1.png';
-import empowhr from './assets/empowhr-logo-01.png';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { MdOutlineVisibility } from 'react-icons/md';
 import { MdOutlineVisibilityOff } from 'react-icons/md';
+import mars1 from './assets/mars1.png';
+import empowhr from './assets/empowhr-logo-01.png';
+
 
 const USERNAME = 'username'
 const PASSWORD = 'password'
@@ -18,6 +19,8 @@ const Login = () => {
     const username = event.target['formUsername'].value
     const password = event.target['formPlaintextPassword'].value
 
+    // TODO: replace with API call
+    // Needs PW checks and everything else
     if (username === USERNAME && password === PASSWORD) {
       console.log('SUCCESS login.  Username:' + username)
     } else {
@@ -43,7 +46,7 @@ const Login = () => {
             <Form.Group as={Row} className="mb-3" controlId="formUsername">
               <Form.Label column sm="2" visuallyHidden>Username</Form.Label>
               <InputGroup className="mb-2">
-                <Form.Control type="text" placeholder="Enter username here" />
+                <Form.Control type="text" placeholder="Enter username" />
                 <InputGroup.Text style={{fontSize:'larger'}}><BsFillPersonFill /></InputGroup.Text>
               </InputGroup>
             </Form.Group>
@@ -51,10 +54,10 @@ const Login = () => {
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
               <Form.Label column sm="2" visuallyHidden>Password</Form.Label>
               <InputGroup className="mb-2">
-                <Form.Control type="password" placeholder="Enter password here" />
+                <Form.Control type="password" placeholder="Enter password" />
                 <InputGroup.Text style={{fontSize:'larger'}}>
-                  <MdOutlineVisibilityOff />
-                  {showPassword ? <MdOutlineVisibility /> : null}
+                  {/* TODO: toggle password visibility is not working */}
+                  {showPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
                 </InputGroup.Text>
               </InputGroup>
             </Form.Group>
@@ -64,8 +67,6 @@ const Login = () => {
             <button type="submit" id="btn-login">LOGIN</button>
 
           </Form>
-
-          {/* <em>Use 'username' for username, blank password</em> */}
           <p></p>
         </Modal.Body>
 
