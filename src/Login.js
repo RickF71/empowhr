@@ -8,45 +8,32 @@ import { BsFillPersonFill } from 'react-icons/bs';
 import { MdOutlineVisibility } from 'react-icons/md';
 import { MdOutlineVisibilityOff } from 'react-icons/md';
 
-//import { useNavigate } from 'react-router-dom';
-
-const USERNAME = 'richard'
+const USERNAME = 'username'
 const PASSWORD = 'password'
 
-function Login(props) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
+const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle login logic here, such as sending data to a server
-    // if (username==USERNAME && password==PASSWORD && email==EMAIL) {
-    if (username === USERNAME) {
-      navigate('/login_success')
+    const username = event.target['formUsername'].value
+    const password = event.target['formPlaintextPassword'].value
+
+    if (username === USERNAME && password === PASSWORD) {
+      console.log('SUCCESS login.  Username:' + username)
     } else {
-      // this.setState({ error: 'Invalid username or password.' })
-      navigate('/login_failure')
+      console.log('FAILED login.  Username:' + username )  
     }
-    this.setState({ loading: false });
+    handleClose()
   }
 
   const [show, setShow] = useState(true);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  useEffect(() => {
-    // Clear the username and password state when the component unmounts
-    return () => {
-      setUsername('');
-      setPassword('');
-    };
-  }, []);
 
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header >
+        <Modal.Header>
           <Modal.Title><img src={mars1} alt="empowhr"  width="100px;" /></Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -56,16 +43,19 @@ function Login(props) {
             <Form.Group as={Row} className="mb-3" controlId="formUsername">
               <Form.Label column sm="2" visuallyHidden>Username</Form.Label>
               <InputGroup className="mb-2">
-                <Form.Control type="text" placeholder="Username" />
-                <InputGroup.Text style={{fontSize:'larger'}}><BsFillPersonFill  /></InputGroup.Text>
+                <Form.Control type="text" placeholder="Enter username here" />
+                <InputGroup.Text style={{fontSize:'larger'}}><BsFillPersonFill /></InputGroup.Text>
               </InputGroup>
             </Form.Group>
             <br />
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
               <Form.Label column sm="2" visuallyHidden>Password</Form.Label>
               <InputGroup className="mb-2">
-                <Form.Control type="password" placeholder="Password" />
-                <InputGroup.Text style={{fontSize:'larger'}}><MdOutlineVisibilityOff /></InputGroup.Text>
+                <Form.Control type="password" placeholder="Enter password here" />
+                <InputGroup.Text style={{fontSize:'larger'}}>
+                  <MdOutlineVisibilityOff />
+                  {showPassword ? <MdOutlineVisibility /> : null}
+                </InputGroup.Text>
               </InputGroup>
             </Form.Group>
             <br />
@@ -75,11 +65,11 @@ function Login(props) {
 
           </Form>
 
-          {/* <em>Use 'richard' for username, blank password</em> */}
+          {/* <em>Use 'username' for username, blank password</em> */}
           <p></p>
         </Modal.Body>
 
-        <Modal.Footer closeButton>
+        <Modal.Footer>
           <Modal.Title>&copy;MARS Solutions Group</Modal.Title>
         </Modal.Footer>
       </Modal>
